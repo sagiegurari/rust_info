@@ -85,11 +85,30 @@ fn load_setup(rust_info: &mut RustInfo) {
                     }
                 }
 
-                rust_info.target_arch = Some(values.remove("target_arch").unwrap_or("unknown".to_string()));
-                rust_info.target_env = Some(values.remove("target_env").unwrap_or("unknown".to_string()));
-                rust_info.target_os = Some(values.remove("target_os").unwrap_or("unknown".to_string()));
-                rust_info.target_pointer_width = Some(values.remove("target_pointer_width").unwrap_or("unknown".to_string()));
-                rust_info.target_vendor = Some(values.remove("target_vendor").unwrap_or("unknown".to_string()));
+                let mut value = values.remove("target_arch");
+                if value.is_some() {
+                    rust_info.target_arch = Some(value.unwrap());
+                }
+
+                value = values.remove("target_env");
+                if value.is_some() {
+                    rust_info.target_env = Some(value.unwrap());
+                }
+
+                value = values.remove("target_os");
+                if value.is_some() {
+                    rust_info.target_os = Some(value.unwrap());
+                }
+
+                value = values.remove("target_pointer_width");
+                if value.is_some() {
+                    rust_info.target_pointer_width = Some(value.unwrap());
+                }
+
+                value = values.remove("target_vendor");
+                if value.is_some() {
+                    rust_info.target_vendor = Some(value.unwrap());
+                }
             }
         }
         _ => (),
@@ -101,18 +120,19 @@ fn load_setup(rust_info: &mut RustInfo) {
 ///
 /// # Example
 ///
-/// ```extern crate rust_info;
+/// ```
+/// extern crate rust_info;
 ///
 /// fn main() {
 ///     let rust_info = rust_info::get();
 ///
 ///     println!("Version: {}", rust_info.version.unwrap());
 ///     println!("Channel: {:#?}", rust_info.channel.unwrap());
-///     println!("Target Arch: {}", rust_info.target_arch.unwrap());
-///     println!("Target Env: {}", rust_info.target_env.unwrap());
-///     println!("Target OS: {}", rust_info.target_os.unwrap());
-///     println!("Target Pointer Width: {}", rust_info.target_pointer_width.unwrap());
-///     println!("Target Vendor: {}", rust_info.target_vendor.unwrap());
+///     println!("Target Arch: {}", rust_info.target_arch.unwrap_or("unknown".to_string()));
+///     println!("Target Env: {}", rust_info.target_env.unwrap_or("unknown".to_string()));
+///     println!("Target OS: {}", rust_info.target_os.unwrap_or("unknown".to_string()));
+///     println!("Target Pointer Width: {}", rust_info.target_pointer_width.unwrap_or("unknown".to_string()));
+///     println!("Target Vendor: {}", rust_info.target_vendor.unwrap_or("unknown".to_string()));
 /// }
 /// ```
 pub fn get() -> RustInfo {
