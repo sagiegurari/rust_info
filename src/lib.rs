@@ -117,8 +117,8 @@
 #[path = "./lib_test.rs"]
 mod lib_test;
 
+mod rustinfo;
 pub mod types;
-pub mod rustinfo;
 
 /// Rust channel type
 pub type RustChannel = types::RustChannel;
