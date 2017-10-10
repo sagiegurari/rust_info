@@ -20,24 +20,22 @@ This library main goal is to provide development/build tools such as [cargo-make
 
 <a name="usage"></a>
 ## Usage
-In order to use this library, you need to first include the crate as follows:
+Simply include the library and invoke the get function to pull all info as follows:
 
 ````rust
 extern crate rust_info;
-````
 
-Afterwards you can use the get function to pull all info as follows:
+fn main() {
+    let rust_info = rust_info::get();
 
-````rust
-let rust_info = rust_info::get();
-
-println!("Version: {}", rust_info.version.unwrap());
-println!("Channel: {:#?}", rust_info.channel.unwrap());
-println!("Target Arch: {}", rust_info.target_arch.unwrap());
-println!("Target Env: {}", rust_info.target_env.unwrap());
-println!("Target OS: {}", rust_info.target_os.unwrap());
-println!("Target Pointer Width: {}", rust_info.target_pointer_width.unwrap());
-println!("Target Vendor: {}", rust_info.target_vendor.unwrap());
+    println!("Version: {}", rust_info.version.unwrap());
+    println!("Channel: {:#?}", rust_info.channel.unwrap());
+    println!("Target Arch: {}", rust_info.target_arch.unwrap());
+    println!("Target Env: {}", rust_info.target_env.unwrap());
+    println!("Target OS: {}", rust_info.target_os.unwrap());
+    println!("Target Pointer Width: {}", rust_info.target_pointer_width.unwrap());
+    println!("Target Vendor: {}", rust_info.target_vendor.unwrap());
+}
 ````
 
 <a name="installation"></a>
