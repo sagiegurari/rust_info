@@ -190,10 +190,6 @@
 <span id="145">145</span>
 <span id="146">146</span>
 <span id="147">147</span>
-<span id="148">148</span>
-<span id="149">149</span>
-<span id="150">150</span>
-<span id="151">151</span>
 </pre><pre class="rust ">
 <span class="attribute">#![<span class="ident">deny</span>(<span class="ident">anonymous_parameters</span>,
         <span class="ident">const_err</span>,
@@ -317,11 +313,7 @@
 <span class="kw">mod</span> <span class="ident">rustinfo</span>;
 <span class="kw">pub</span> <span class="kw">mod</span> <span class="ident">types</span>;
 
-<span class="doccomment">/// Rust channel type</span>
-<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">RustChannel</span> <span class="op">=</span> <span class="ident">types</span>::<span class="ident">RustChannel</span>;
-
-<span class="doccomment">/// Holds the current rust installation and setup information</span>
-<span class="kw">pub</span> <span class="kw">type</span> <span class="ident">RustInfo</span> <span class="op">=</span> <span class="ident">types</span>::<span class="ident">RustInfo</span>;
+<span class="kw">use</span> <span class="ident">types</span>::<span class="ident">RustInfo</span>;
 
 <span class="doccomment">/// Loads and returns the current rust compiler version and setup.&lt;br&gt;</span>
 <span class="doccomment">/// In case partial data is not available, those values will be set to Option::None.</span>

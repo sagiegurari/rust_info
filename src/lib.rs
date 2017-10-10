@@ -120,11 +120,7 @@ mod lib_test;
 mod rustinfo;
 pub mod types;
 
-/// Rust channel type
-pub type RustChannel = types::RustChannel;
-
-/// Holds the current rust installation and setup information
-pub type RustInfo = types::RustInfo;
+use types::RustInfo;
 
 /// Loads and returns the current rust compiler version and setup.<br>
 /// In case partial data is not available, those values will be set to Option::None.
