@@ -17,5 +17,4 @@ fn load_with_values() {
     assert!(rust_info.target_env.is_some());
     assert!(rust_info.target_os.is_some());
     assert!(rust_info.target_pointer_width.is_some());
-    assert!(rust_info.target_vendor.is_some());
 }
