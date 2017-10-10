@@ -38,7 +38,7 @@ pub struct RustInfo {
 }
 
 impl RustInfo {
-    /// Returns new instasnce
+    /// Returns new instance
     pub fn new() -> RustInfo {
         RustInfo {
             version: None,
