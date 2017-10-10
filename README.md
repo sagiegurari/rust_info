@@ -16,7 +16,7 @@
 
 <a name="overview"></a>
 ## Overview
-This library main goal is to provide development/build tools such as [cargo-make](https://sagiegurari.github.io/cargo-make/)the needed information on the current rust installation and setup.
+This library main goal is to provide development/build tools such as [cargo-make](https://sagiegurari.github.io/cargo-make/) the needed information on the current rust installation and setup.
 
 <a name="usage"></a>
 ## Usage
