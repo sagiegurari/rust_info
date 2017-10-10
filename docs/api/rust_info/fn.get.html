@@ -48,24 +48,25 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../src/rust_info/lib.rs.html#148-150' title='goto source code'>[src]</a></span></h1>
+               </span><a class='srclink' href='../src/rust_info/lib.rs.html#149-151' title='goto source code'>[src]</a></span></h1>
 <pre class='rust fn'>pub fn get() -&gt; <a class="type" href="../rust_info/type.RustInfo.html" title="type rust_info::RustInfo">RustInfo</a></pre><div class='docblock'><p>Loads and returns the current rust compiler version and setup.<br>
 In case partial data is not available, those values will be set to Option::None.</p>
 
 <h1 id='example' class='section-header'><a href='#example'>Example</a></h1>
-<pre><code class="language-extern">
-fn main() {
-    let rust_info = rust_info::get();
+<pre class="rust rust-example-rendered">
+<span class="kw">extern</span> <span class="kw">crate</span> <span class="ident">rust_info</span>;
 
-    println!(&quot;Version: {}&quot;, rust_info.version.unwrap());
-    println!(&quot;Channel: {:#?}&quot;, rust_info.channel.unwrap());
-    println!(&quot;Target Arch: {}&quot;, rust_info.target_arch.unwrap());
-    println!(&quot;Target Env: {}&quot;, rust_info.target_env.unwrap());
-    println!(&quot;Target OS: {}&quot;, rust_info.target_os.unwrap());
-    println!(&quot;Target Pointer Width: {}&quot;, rust_info.target_pointer_width.unwrap());
-    println!(&quot;Target Vendor: {}&quot;, rust_info.target_vendor.unwrap());
-}
-</code></pre>
+<span class="kw">fn</span> <span class="ident">main</span>() {
+    <span class="kw">let</span> <span class="ident">rust_info</span> <span class="op">=</span> <span class="ident">rust_info</span>::<span class="ident">get</span>();
+
+    <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;Version: {}&quot;</span>, <span class="ident">rust_info</span>.<span class="ident">version</span>.<span class="ident">unwrap</span>());
+    <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;Channel: {:#?}&quot;</span>, <span class="ident">rust_info</span>.<span class="ident">channel</span>.<span class="ident">unwrap</span>());
+    <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;Target Arch: {}&quot;</span>, <span class="ident">rust_info</span>.<span class="ident">target_arch</span>.<span class="ident">unwrap_or</span>(<span class="string">&quot;unknown&quot;</span>.<span class="ident">to_string</span>()));
+    <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;Target Env: {}&quot;</span>, <span class="ident">rust_info</span>.<span class="ident">target_env</span>.<span class="ident">unwrap_or</span>(<span class="string">&quot;unknown&quot;</span>.<span class="ident">to_string</span>()));
+    <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;Target OS: {}&quot;</span>, <span class="ident">rust_info</span>.<span class="ident">target_os</span>.<span class="ident">unwrap_or</span>(<span class="string">&quot;unknown&quot;</span>.<span class="ident">to_string</span>()));
+    <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;Target Pointer Width: {}&quot;</span>, <span class="ident">rust_info</span>.<span class="ident">target_pointer_width</span>.<span class="ident">unwrap_or</span>(<span class="string">&quot;unknown&quot;</span>.<span class="ident">to_string</span>()));
+    <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;Target Vendor: {}&quot;</span>, <span class="ident">rust_info</span>.<span class="ident">target_vendor</span>.<span class="ident">unwrap_or</span>(<span class="string">&quot;unknown&quot;</span>.<span class="ident">to_string</span>()));
+}</pre>
 </div></section>
     <section id='search' class="content hidden"></section>
 

@@ -48,7 +48,7 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a class='srclink' href='../src/rust_info/lib.rs.html#1-150' title='goto source code'>[src]</a></span></h1>
+               </span><a class='srclink' href='../src/rust_info/lib.rs.html#1-151' title='goto source code'>[src]</a></span></h1>
 <div class='docblock'>
 <h1 id='rust_info' class='section-header'><a href='#rust_info'>rust_info</a></h1>
 <p>Extracts and provides the current rust compiler information.</p>
@@ -66,11 +66,11 @@ setup.</p>
 
     <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;Version: {}&quot;</span>, <span class="ident">rust_info</span>.<span class="ident">version</span>.<span class="ident">unwrap</span>());
     <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;Channel: {:#?}&quot;</span>, <span class="ident">rust_info</span>.<span class="ident">channel</span>.<span class="ident">unwrap</span>());
-    <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;Target Arch: {}&quot;</span>, <span class="ident">rust_info</span>.<span class="ident">target_arch</span>.<span class="ident">unwrap</span>());
-    <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;Target Env: {}&quot;</span>, <span class="ident">rust_info</span>.<span class="ident">target_env</span>.<span class="ident">unwrap</span>());
-    <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;Target OS: {}&quot;</span>, <span class="ident">rust_info</span>.<span class="ident">target_os</span>.<span class="ident">unwrap</span>());
-    <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;Target Pointer Width: {}&quot;</span>, <span class="ident">rust_info</span>.<span class="ident">target_pointer_width</span>.<span class="ident">unwrap</span>());
-    <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;Target Vendor: {}&quot;</span>, <span class="ident">rust_info</span>.<span class="ident">target_vendor</span>.<span class="ident">unwrap</span>());
+    <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;Target Arch: {}&quot;</span>, <span class="ident">rust_info</span>.<span class="ident">target_arch</span>.<span class="ident">unwrap_or</span>(<span class="string">&quot;unknown&quot;</span>.<span class="ident">to_string</span>()));
+    <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;Target Env: {}&quot;</span>, <span class="ident">rust_info</span>.<span class="ident">target_env</span>.<span class="ident">unwrap_or</span>(<span class="string">&quot;unknown&quot;</span>.<span class="ident">to_string</span>()));
+    <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;Target OS: {}&quot;</span>, <span class="ident">rust_info</span>.<span class="ident">target_os</span>.<span class="ident">unwrap_or</span>(<span class="string">&quot;unknown&quot;</span>.<span class="ident">to_string</span>()));
+    <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;Target Pointer Width: {}&quot;</span>, <span class="ident">rust_info</span>.<span class="ident">target_pointer_width</span>.<span class="ident">unwrap_or</span>(<span class="string">&quot;unknown&quot;</span>.<span class="ident">to_string</span>()));
+    <span class="macro">println</span><span class="macro">!</span>(<span class="string">&quot;Target Vendor: {}&quot;</span>, <span class="ident">rust_info</span>.<span class="ident">target_vendor</span>.<span class="ident">unwrap_or</span>(<span class="string">&quot;unknown&quot;</span>.<span class="ident">to_string</span>()));
 }</pre>
 
 <h1 id='installation' class='section-header'><a href='#installation'>Installation</a></h1>

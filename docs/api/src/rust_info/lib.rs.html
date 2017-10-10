@@ -193,6 +193,7 @@
 <span id="148">148</span>
 <span id="149">149</span>
 <span id="150">150</span>
+<span id="151">151</span>
 </pre><pre class="rust ">
 <span class="attribute">#![<span class="ident">deny</span>(<span class="ident">anonymous_parameters</span>,
         <span class="ident">const_err</span>,
@@ -285,11 +286,11 @@
 <span class="doccomment">//!</span>
 <span class="doccomment">//!     println!(&quot;Version: {}&quot;, rust_info.version.unwrap());</span>
 <span class="doccomment">//!     println!(&quot;Channel: {:#?}&quot;, rust_info.channel.unwrap());</span>
-<span class="doccomment">//!     println!(&quot;Target Arch: {}&quot;, rust_info.target_arch.unwrap());</span>
-<span class="doccomment">//!     println!(&quot;Target Env: {}&quot;, rust_info.target_env.unwrap());</span>
-<span class="doccomment">//!     println!(&quot;Target OS: {}&quot;, rust_info.target_os.unwrap());</span>
-<span class="doccomment">//!     println!(&quot;Target Pointer Width: {}&quot;, rust_info.target_pointer_width.unwrap());</span>
-<span class="doccomment">//!     println!(&quot;Target Vendor: {}&quot;, rust_info.target_vendor.unwrap());</span>
+<span class="doccomment">//!     println!(&quot;Target Arch: {}&quot;, rust_info.target_arch.unwrap_or(&quot;unknown&quot;.to_string()));</span>
+<span class="doccomment">//!     println!(&quot;Target Env: {}&quot;, rust_info.target_env.unwrap_or(&quot;unknown&quot;.to_string()));</span>
+<span class="doccomment">//!     println!(&quot;Target OS: {}&quot;, rust_info.target_os.unwrap_or(&quot;unknown&quot;.to_string()));</span>
+<span class="doccomment">//!     println!(&quot;Target Pointer Width: {}&quot;, rust_info.target_pointer_width.unwrap_or(&quot;unknown&quot;.to_string()));</span>
+<span class="doccomment">//!     println!(&quot;Target Vendor: {}&quot;, rust_info.target_vendor.unwrap_or(&quot;unknown&quot;.to_string()));</span>
 <span class="doccomment">//! }</span>
 <span class="doccomment">//! ```</span>
 <span class="doccomment">//!</span>
@@ -327,18 +328,19 @@
 <span class="doccomment">///</span>
 <span class="doccomment">/// # Example</span>
 <span class="doccomment">///</span>
-<span class="doccomment">/// ```extern crate rust_info;</span>
+<span class="doccomment">/// ```</span>
+<span class="doccomment">/// extern crate rust_info;</span>
 <span class="doccomment">///</span>
 <span class="doccomment">/// fn main() {</span>
 <span class="doccomment">///     let rust_info = rust_info::get();</span>
 <span class="doccomment">///</span>
 <span class="doccomment">///     println!(&quot;Version: {}&quot;, rust_info.version.unwrap());</span>
 <span class="doccomment">///     println!(&quot;Channel: {:#?}&quot;, rust_info.channel.unwrap());</span>
-<span class="doccomment">///     println!(&quot;Target Arch: {}&quot;, rust_info.target_arch.unwrap());</span>
-<span class="doccomment">///     println!(&quot;Target Env: {}&quot;, rust_info.target_env.unwrap());</span>
-<span class="doccomment">///     println!(&quot;Target OS: {}&quot;, rust_info.target_os.unwrap());</span>
-<span class="doccomment">///     println!(&quot;Target Pointer Width: {}&quot;, rust_info.target_pointer_width.unwrap());</span>
-<span class="doccomment">///     println!(&quot;Target Vendor: {}&quot;, rust_info.target_vendor.unwrap());</span>
+<span class="doccomment">///     println!(&quot;Target Arch: {}&quot;, rust_info.target_arch.unwrap_or(&quot;unknown&quot;.to_string()));</span>
+<span class="doccomment">///     println!(&quot;Target Env: {}&quot;, rust_info.target_env.unwrap_or(&quot;unknown&quot;.to_string()));</span>
+<span class="doccomment">///     println!(&quot;Target OS: {}&quot;, rust_info.target_os.unwrap_or(&quot;unknown&quot;.to_string()));</span>
+<span class="doccomment">///     println!(&quot;Target Pointer Width: {}&quot;, rust_info.target_pointer_width.unwrap_or(&quot;unknown&quot;.to_string()));</span>
+<span class="doccomment">///     println!(&quot;Target Vendor: {}&quot;, rust_info.target_vendor.unwrap_or(&quot;unknown&quot;.to_string()));</span>
 <span class="doccomment">/// }</span>
 <span class="doccomment">/// ```</span>
 <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get</span>() <span class="op">-&gt;</span> <span class="ident">RustInfo</span> {
