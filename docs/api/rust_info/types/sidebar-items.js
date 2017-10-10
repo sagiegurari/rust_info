@@ -1,0 +1,1 @@
+initSidebarItems({"enum":[["RustChannel","Rust channel type"]],"struct":[["RustInfo","Holds the current rust installation and setup information"]]});

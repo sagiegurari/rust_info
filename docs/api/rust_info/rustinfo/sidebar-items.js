@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["get","Loads and returns the current rust compiler version and setup. In case partial data is not available, those values will be set to Option::None."]]});
