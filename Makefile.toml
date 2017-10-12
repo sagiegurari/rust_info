@@ -1,14 +1,4 @@
 
-[tasks.outdated]
-# There are no dependencies so can be skipped
-disabled = true
-
-[tasks.run-example]
-command = "cargo"
-args = ["run", "--example", "example"]
-
-[tasks.pre-verify-project]
-dependencies = [
-    "run-example",
-    "bench-flow"
-]
+[env]
+CARGO_MAKE_BUILD_BENCH = "TRUE"
+CARGO_MAKE_BUILD_EXAMPLES = "TRUE"
