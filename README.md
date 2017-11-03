@@ -1,7 +1,7 @@
 # rust_info
 
 [![crates.io](https://img.shields.io/crates/v/rust_info.svg)](https://crates.io/crates/rust_info) [![Build Status](https://travis-ci.org/sagiegurari/rust_info.svg)](http://travis-ci.org/sagiegurari/rust_info) [![Build status](https://ci.appveyor.com/api/projects/status/yabao0rd9jrv4lli?svg=true)](https://ci.appveyor.com/project/sagiegurari/rust-info) [![codecov](https://codecov.io/gh/sagiegurari/rust_info/branch/master/graph/badge.svg)](https://codecov.io/gh/sagiegurari/rust_info)<br>
-[![license](https://img.shields.io/github/license/sagiegurari/rust_info.svg)](https://github.com/sagiegurari/rust_info/blob/master/LICENSE) [![Libraries.io for GitHub](https://img.shields.io/librariesio/github/sagiegurari/rust_info.svg)](https://libraries.io/cargo/rust_info) [![Documentation](https://docs.rs/rust_info/badge.svg)](https://docs.rs/crate/rust_info/) [![downloads](https://img.shields.io/crates/d/rust_info.svg)](https://crates.io/crates/rust_info)<br>
+[![license](https://img.shields.io/crates/l/rust_info.svg)](https://github.com/sagiegurari/rust_info/blob/master/LICENSE) [![Libraries.io for GitHub](https://img.shields.io/librariesio/github/sagiegurari/rust_info.svg)](https://libraries.io/cargo/rust_info) [![Documentation](https://docs.rs/rust_info/badge.svg)](https://docs.rs/crate/rust_info/) [![downloads](https://img.shields.io/crates/d/rust_info.svg)](https://crates.io/crates/rust_info)<br>
 [![Built with cargo-make](https://sagiegurari.github.io/cargo-make/assets/badges/cargo-make.svg)](https://sagiegurari.github.io/cargo-make)
 
 > Extracts the current [rust](https://www.rust-lang.org/) compiler information.
@@ -58,7 +58,7 @@ See [contributing guide](.github/CONTRIBUTING.md)
 
 | Date        | Version | Description |
 | ----------- | ------- | ----------- |
-| 2017-10-21  | v0.1.6  | Maintenance |
+| 2017-11-03  | v0.1.7  | Maintenance |
 | 2017-10-10  | v0.1.1  | Update exposed types. |
 | 2017-10-10  | v0.1.0  | Initial release. |
 
