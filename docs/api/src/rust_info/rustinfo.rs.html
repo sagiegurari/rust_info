@@ -327,7 +327,7 @@
 <span class="doccomment">///     println!(&quot;Target Vendor: {}&quot;, rust_info.target_vendor.unwrap_or(&quot;unknown&quot;.to_string()));</span>
 <span class="doccomment">/// }</span>
 <span class="doccomment">/// ```</span>
-<span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get</span>() <span class="op">-&gt;</span> <span class="ident">RustInfo</span> {
+<span class="kw">pub</span>(<span class="kw">crate</span>) <span class="kw">fn</span> <span class="ident">get</span>() <span class="op">-&gt;</span> <span class="ident">RustInfo</span> {
     <span class="kw">let</span> <span class="kw-2">mut</span> <span class="ident">rust_info</span> <span class="op">=</span> <span class="ident">RustInfo</span>::<span class="ident">new</span>();
 
     <span class="ident">load_version</span>(<span class="kw-2">&amp;</span><span class="kw-2">mut</span> <span class="ident">rust_info</span>);
@@ -362,7 +362,7 @@
                     <dd>Switch tab</dd>
                     <dt>&#9166;</dt>
                     <dd>Go to active search result</dd>
-                    <dt>+</dt>
+                    <dt style="width:31px;">+ / -</dt>
                     <dd>Collapse/expand all sections</dd>
                 </dl>
             </div>

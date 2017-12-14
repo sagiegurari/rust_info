@@ -135,7 +135,7 @@ fn load_setup(rust_info: &mut RustInfo) {
 ///     println!("Target Vendor: {}", rust_info.target_vendor.unwrap_or("unknown".to_string()));
 /// }
 /// ```
-pub fn get() -> RustInfo {
+pub(crate) fn get() -> RustInfo {
     let mut rust_info = RustInfo::new();
 
     load_version(&mut rust_info);
