@@ -15,7 +15,7 @@ pub enum RustChannel {
     /// Rust beta channel
     Beta,
     /// Rust nightly channel
-    Nightly
+    Nightly,
 }
 
 #[derive(Debug, Clone, PartialEq)]
@@ -34,7 +34,7 @@ pub struct RustInfo {
     /// target pointer width cfg value
     pub target_pointer_width: Option<String>,
     /// target vendor cfg value
-    pub target_vendor: Option<String>
+    pub target_vendor: Option<String>,
 }
 
 impl RustInfo {
@@ -47,7 +47,7 @@ impl RustInfo {
             target_env: None,
             target_os: None,
             target_pointer_width: None,
-            target_vendor: None
+            target_vendor: None,
         }
     }
 }
