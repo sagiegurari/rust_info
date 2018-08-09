@@ -58,7 +58,7 @@ See [contributing guide](.github/CONTRIBUTING.md)
 
 | Date        | Version | Description |
 | ----------- | ------- | ----------- |
-| 2018-05-29  | v0.1.14 | Maintenance |
+| 2018-08-09  | v0.1.15 | Maintenance |
 | 2017-10-10  | v0.1.1  | Update exposed types. |
 | 2017-10-10  | v0.1.0  | Initial release. |
 
