@@ -7,10 +7,10 @@
 #[path = "./rustinfo_test.rs"]
 mod rustinfo_test;
 
+use crate::types::{RustChannel, RustInfo};
 use std::collections::HashMap;
 use std::io::Error;
 use std::process::{Command, ExitStatus};
-use types::{RustChannel, RustInfo};
 
 /// Returns the exit code (-1 if no exit code found)
 fn get_exit_code(exit_status: Result<ExitStatus, Error>) -> i32 {
