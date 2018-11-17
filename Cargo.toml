@@ -1,6 +1,6 @@
 [package]
 name = "rust_info"
-version = "0.2.0"
+version = "0.2.1"
 authors = ["Sagie Gur-Ari <sagiegurari@gmail.com>"]
 description = "Extracts the current rust compiler information."
 license = "Apache-2.0"
@@ -21,9 +21,6 @@ include = [
     "/README.md",
     "/Makefile.toml"
 ]
-
-[features]
-default = []
 
 [badges.travis-ci]
 branch = "master"
