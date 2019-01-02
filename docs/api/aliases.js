@@ -1,2 +1,2 @@
 var ALIASES = {};
-ALIASES['rust_info'] = {};
+ALIASES["rust_info"] = {};
