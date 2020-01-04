@@ -27,4 +27,8 @@ fn main() {
         "Target Vendor: {}",
         rust_info.target_vendor.unwrap_or("unknown".to_string())
     );
+    println!(
+        "Target Triple: {}",
+        rust_info.target_triple.unwrap_or("unknown".to_string())
+    );
 }

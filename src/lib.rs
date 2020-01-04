@@ -122,6 +122,7 @@
 //!     println!("Target OS: {}", rust_info.target_os.unwrap_or("unknown".to_string()));
 //!     println!("Target Pointer Width: {}", rust_info.target_pointer_width.unwrap_or("unknown".to_string()));
 //!     println!("Target Vendor: {}", rust_info.target_vendor.unwrap_or("unknown".to_string()));
+//!     println!("Target Triple: {}", rust_info.target_triple.unwrap_or("unknown".to_string()));
 //! }
 //! ```
 //!
@@ -168,6 +169,7 @@ use crate::types::RustInfo;
 ///     println!("Target OS: {}", rust_info.target_os.unwrap_or("unknown".to_string()));
 ///     println!("Target Pointer Width: {}", rust_info.target_pointer_width.unwrap_or("unknown".to_string()));
 ///     println!("Target Vendor: {}", rust_info.target_vendor.unwrap_or("unknown".to_string()));
+///     println!("Target Triple: {}", rust_info.target_triple.unwrap_or("unknown".to_string()));
 /// }
 /// ```
 pub fn get() -> RustInfo {

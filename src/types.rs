@@ -35,6 +35,8 @@ pub struct RustInfo {
     pub target_pointer_width: Option<String>,
     /// target vendor cfg value
     pub target_vendor: Option<String>,
+    /// target triple cfg value
+    pub target_triple: Option<String>,
 }
 
 impl RustInfo {
@@ -48,6 +50,7 @@ impl RustInfo {
             target_os: None,
             target_pointer_width: None,
             target_vendor: None,
+            target_triple: None,
         }
     }
 }

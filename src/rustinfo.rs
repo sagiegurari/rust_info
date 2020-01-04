@@ -85,19 +85,33 @@ fn load_setup(rust_info: &mut RustInfo) {
                     }
                 }
 
+                let mut triple = String::new();
+
                 let mut value = values.remove("target_arch");
-                if value.is_some() {
-                    rust_info.target_arch = Some(value.unwrap());
+                if let Some(value) = value {
+                    triple.push_str(&value);
+                    rust_info.target_arch = Some(value);
                 }
 
-                value = values.remove("target_env");
-                if value.is_some() {
-                    rust_info.target_env = Some(value.unwrap());
+                value = values.remove("target_vendor");
+                if let Some(value) = value {
+                    triple.push_str("-");
+                    triple.push_str(&value);
+                    rust_info.target_vendor = Some(value);
                 }
 
                 value = values.remove("target_os");
-                if value.is_some() {
-                    rust_info.target_os = Some(value.unwrap());
+                if let Some(value) = value {
+                    triple.push_str("-");
+                    triple.push_str(&value);
+                    rust_info.target_os = Some(value);
+                }
+
+                value = values.remove("target_env");
+                if let Some(value) = value {
+                    triple.push_str("-");
+                    triple.push_str(&value);
+                    rust_info.target_env = Some(value);
                 }
 
                 value = values.remove("target_pointer_width");
@@ -105,9 +119,8 @@ fn load_setup(rust_info: &mut RustInfo) {
                     rust_info.target_pointer_width = Some(value.unwrap());
                 }
 
-                value = values.remove("target_vendor");
-                if value.is_some() {
-                    rust_info.target_vendor = Some(value.unwrap());
+                if !triple.is_empty() {
+                    rust_info.target_triple = Some(triple);
                 }
             }
         }

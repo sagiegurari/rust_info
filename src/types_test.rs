@@ -11,4 +11,5 @@ fn rust_info_new() {
     assert!(rust_info.target_os.is_none());
     assert!(rust_info.target_pointer_width.is_none());
     assert!(rust_info.target_vendor.is_none());
+    assert!(rust_info.target_triple.is_none());
 }
