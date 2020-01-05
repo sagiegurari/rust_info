@@ -35,7 +35,7 @@ pub struct RustInfo {
     pub target_pointer_width: Option<String>,
     /// target vendor cfg value
     pub target_vendor: Option<String>,
-    /// target triple cfg value
+    /// target triple constructed from target arc, vendor, os and env
     pub target_triple: Option<String>,
 }
 

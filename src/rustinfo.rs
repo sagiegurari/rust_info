@@ -91,6 +91,8 @@ fn load_setup(rust_info: &mut RustInfo) {
                 if let Some(value) = value {
                     triple.push_str(&value);
                     rust_info.target_arch = Some(value);
+                } else {
+                    triple.push_str("unknown")
                 }
 
                 value = values.remove("target_vendor");
@@ -119,7 +121,7 @@ fn load_setup(rust_info: &mut RustInfo) {
                     rust_info.target_pointer_width = Some(value.unwrap());
                 }
 
-                if !triple.is_empty() {
+                if triple != "unknown" {
                     rust_info.target_triple = Some(triple);
                 }
             }
