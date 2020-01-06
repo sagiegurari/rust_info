@@ -48,16 +48,16 @@ fn load_triple_with_arch_first() {
 fn load_triple_with_os_first() {
     let mut rust_info = RustInfo::new();
 
-    rust_info.target_os = Some(String::from("unknown"));
-    rust_info.target_vendor = Some(String::from("unknown"));
-    rust_info.target_env = Some(String::from("unknown"));
+    rust_info.target_os = Some(String::from("os"));
+    rust_info.target_vendor = Some(String::from("vendor"));
+    rust_info.target_env = Some(String::from("env"));
     load_triple(&mut rust_info);
     assert!(rust_info.target_triple.is_none());
 
-    rust_info.target_arch = Some(String::from("unknown"));
+    rust_info.target_arch = Some(String::from("arch"));
     load_triple(&mut rust_info);
     assert_eq!(
-        Some(String::from("unknown-unknown-unknown-unknown")),
+        Some(String::from("arch-vendor-os-env")),
         rust_info.target_triple
     );
 }
@@ -66,11 +66,8 @@ fn load_triple_with_os_first() {
 fn load_triple_with_minimum() {
     let mut rust_info = RustInfo::new();
 
-    rust_info.target_arch = Some(String::from("unknown"));
-    rust_info.target_os = Some(String::from("unknown"));
+    rust_info.target_arch = Some(String::from("arch"));
+    rust_info.target_os = Some(String::from("os"));
     load_triple(&mut rust_info);
-    assert_eq!(
-        Some(String::from("unknown-unknown")),
-        rust_info.target_triple
-    );
+    assert_eq!(Some(String::from("arch-os")), rust_info.target_triple);
 }

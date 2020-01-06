@@ -35,6 +35,7 @@ fn main() {
     println!("Target OS: {}", rust_info.target_os.unwrap_or("unknown".to_string()));
     println!("Target Pointer Width: {}", rust_info.target_pointer_width.unwrap_or("unknown".to_string()));
     println!("Target Vendor: {}", rust_info.target_vendor.unwrap_or("unknown".to_string()));
+    println!("Target Triple: {}", rust_info.target_triple.unwrap_or("unknown".to_string()));
 }
 ````
 
@@ -58,7 +59,7 @@ See [contributing guide](.github/CONTRIBUTING.md)
 
 | Date        | Version | Description |
 | ----------- | ------- | ----------- |
-| 2019-01-02  | v0.2.2  | Maintenance |
+| 2019-01-06  | v0.3.0  | Adding target_triple information. |
 | 2017-10-10  | v0.1.1  | Update exposed types. |
 | 2017-10-10  | v0.1.0  | Initial release. |
 

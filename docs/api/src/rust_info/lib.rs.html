@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source to the Rust file `src/lib.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>lib.rs.html -- source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css"><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script src="../../storage.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../theme.js"></script><nav class="sub"><form class="search-form js-only"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><a id="settings-menu" href="../../settings.html"><img src="../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">  1</span>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Source to the Rust file `src/lib.rs`."><meta name="keywords" content="rust, rustlang, rust-lang"><title>lib.rs.html -- source</title><link rel="stylesheet" type="text/css" href="../../normalize.css"><link rel="stylesheet" type="text/css" href="../../rustdoc.css" id="mainThemeStyle"><link rel="stylesheet" type="text/css" href="../../dark.css"><link rel="stylesheet" type="text/css" href="../../light.css" id="themeStyle"><script src="../../storage.js"></script><noscript><link rel="stylesheet" href="../../noscript.css"></noscript><link rel="shortcut icon" href="../../favicon.ico"><style type="text/css">#crate-search{background-image:url("../../down-arrow.svg");}</style></head><body class="rustdoc source"><!--[if lte IE 8]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="sidebar"><div class="sidebar-menu">&#9776;</div><a href='../../rust_info/index.html'><div class='logo-container'><img src='../../rust-logo.png' alt='logo'></div></a></nav><div class="theme-picker"><button id="theme-picker" aria-label="Pick another theme!"><img src="../../brush.svg" width="18" alt="Pick another theme!"></button><div id="theme-choices"></div></div><script src="../../theme.js"></script><nav class="sub"><form class="search-form js-only"><div class="search-container"><div><select id="crate-search"><option value="All crates">All crates</option></select><input class="search-input" name="search" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"></div><a id="settings-menu" href="../../settings.html"><img src="../../wheel.svg" width="18" alt="Change settings"></a></div></form></nav><section id="main" class="content"><pre class="line-numbers"><span id="1">  1</span>
 <span id="2">  2</span>
 <span id="3">  3</span>
 <span id="4">  4</span>
@@ -169,9 +169,16 @@
 <span id="169">169</span>
 <span id="170">170</span>
 <span id="171">171</span>
+<span id="172">172</span>
+<span id="173">173</span>
+<span id="174">174</span>
+<span id="175">175</span>
+<span id="176">176</span>
+<span id="177">177</span>
 </pre><div class="example-wrap"><pre class="rust ">
 <span class="attribute">#![<span class="ident">deny</span>(
     <span class="ident">absolute_paths_not_starting_with_crate</span>,
+    <span class="ident">ambiguous_associated_items</span>,
     <span class="ident">anonymous_parameters</span>,
     <span class="ident">const_err</span>,
     <span class="ident">dead_code</span>,
@@ -181,10 +188,11 @@
     <span class="ident">ellipsis_inclusive_range_patterns</span>,
     <span class="ident">exceeding_bitshifts</span>,
     <span class="ident">explicit_outlives_requirements</span>,
+    <span class="ident">exported_private_dependencies</span>,
+    <span class="ident">ill_formed_attribute_input</span>,
     <span class="ident">illegal_floating_point_literal_pattern</span>,
     <span class="ident">improper_ctypes</span>,
-    <span class="ident">incoherent_fundamental_impls</span>,
-    <span class="ident">intra_doc_link_resolution_failure</span>,
+    <span class="ident">indirect_structural_match</span>,
     <span class="ident">invalid_type_param_default</span>,
     <span class="ident">irrefutable_let_patterns</span>,
     <span class="ident">keyword_idents</span>,
@@ -195,9 +203,12 @@
     <span class="ident">missing_copy_implementations</span>,
     <span class="ident">missing_docs</span>,
     <span class="ident">missing_fragment_specifier</span>,
+    <span class="ident">mutable_borrow_reservation_conflict</span>,
     <span class="ident">mutable_transmutes</span>,
+    <span class="ident">nested_impl_trait</span>,
     <span class="ident">no_mangle_const_items</span>,
     <span class="ident">no_mangle_generic_items</span>,
+    <span class="ident">non_ascii_idents</span>,
     <span class="ident">non_camel_case_types</span>,
     <span class="ident">non_shorthand_field_patterns</span>,
     <span class="ident">non_snake_case</span>,
@@ -212,7 +223,6 @@
     <span class="ident">private_in_public</span>,
     <span class="ident">proc_macro_derive_resolution_fallback</span>,
     <span class="ident">pub_use_of_private_extern_crate</span>,
-    <span class="ident">question_mark_macro_sep</span>,
     <span class="ident">safe_extern_statics</span>,
     <span class="ident">safe_packed_borrows</span>,
     <span class="ident">stable_features</span>,
@@ -257,6 +267,7 @@
     <span class="ident">bare_trait_objects</span>,
     <span class="ident">box_pointers</span>,
     <span class="ident">elided_lifetimes_in_paths</span>,
+    <span class="ident">intra_doc_link_resolution_failure</span>,
     <span class="ident">missing_doc_code_examples</span>,
     <span class="ident">missing_debug_implementations</span>,
     <span class="ident">single_use_lifetimes</span>,
@@ -265,7 +276,6 @@
     <span class="ident">warnings</span>,
     <span class="ident">renamed_and_removed_lints</span>
 )]</span>
-<span class="attribute">#![<span class="ident">cfg_attr</span>(<span class="ident">feature</span> <span class="op">=</span> <span class="string">&quot;clippy&quot;</span>, <span class="ident">feature</span>(<span class="ident">plugin</span>))]</span>
 
 <span class="doccomment">//! # rust_info</span>
 <span class="doccomment">//!</span>
@@ -290,6 +300,7 @@
 <span class="doccomment">//!     println!(&quot;Target OS: {}&quot;, rust_info.target_os.unwrap_or(&quot;unknown&quot;.to_string()));</span>
 <span class="doccomment">//!     println!(&quot;Target Pointer Width: {}&quot;, rust_info.target_pointer_width.unwrap_or(&quot;unknown&quot;.to_string()));</span>
 <span class="doccomment">//!     println!(&quot;Target Vendor: {}&quot;, rust_info.target_vendor.unwrap_or(&quot;unknown&quot;.to_string()));</span>
+<span class="doccomment">//!     println!(&quot;Target Triple: {}&quot;, rust_info.target_triple.unwrap_or(&quot;unknown&quot;.to_string()));</span>
 <span class="doccomment">//! }</span>
 <span class="doccomment">//! ```</span>
 <span class="doccomment">//!</span>
@@ -336,6 +347,7 @@
 <span class="doccomment">///     println!(&quot;Target OS: {}&quot;, rust_info.target_os.unwrap_or(&quot;unknown&quot;.to_string()));</span>
 <span class="doccomment">///     println!(&quot;Target Pointer Width: {}&quot;, rust_info.target_pointer_width.unwrap_or(&quot;unknown&quot;.to_string()));</span>
 <span class="doccomment">///     println!(&quot;Target Vendor: {}&quot;, rust_info.target_vendor.unwrap_or(&quot;unknown&quot;.to_string()));</span>
+<span class="doccomment">///     println!(&quot;Target Triple: {}&quot;, rust_info.target_triple.unwrap_or(&quot;unknown&quot;.to_string()));</span>
 <span class="doccomment">/// }</span>
 <span class="doccomment">/// ```</span>
 <span class="kw">pub</span> <span class="kw">fn</span> <span class="ident">get</span>() <span class="op">-&gt;</span> <span class="ident">RustInfo</span> {
