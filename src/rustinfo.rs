@@ -85,35 +85,19 @@ fn load_setup(rust_info: &mut RustInfo) {
                     }
                 }
 
-                let mut triple = String::new();
-
                 let mut value = values.remove("target_arch");
-                if let Some(value) = value {
-                    triple.push_str(&value);
-                    rust_info.target_arch = Some(value);
-                } else {
-                    triple.push_str("unknown")
-                }
-
-                value = values.remove("target_vendor");
-                if let Some(value) = value {
-                    triple.push_str("-");
-                    triple.push_str(&value);
-                    rust_info.target_vendor = Some(value);
-                }
-
-                value = values.remove("target_os");
-                if let Some(value) = value {
-                    triple.push_str("-");
-                    triple.push_str(&value);
-                    rust_info.target_os = Some(value);
+                if value.is_some() {
+                    rust_info.target_arch = Some(value.unwrap());
                 }
 
                 value = values.remove("target_env");
-                if let Some(value) = value {
-                    triple.push_str("-");
-                    triple.push_str(&value);
-                    rust_info.target_env = Some(value);
+                if value.is_some() {
+                    rust_info.target_env = Some(value.unwrap());
+                }
+
+                value = values.remove("target_os");
+                if value.is_some() {
+                    rust_info.target_os = Some(value.unwrap());
                 }
 
                 value = values.remove("target_pointer_width");
@@ -121,13 +105,43 @@ fn load_setup(rust_info: &mut RustInfo) {
                     rust_info.target_pointer_width = Some(value.unwrap());
                 }
 
-                if triple != "unknown" {
-                    rust_info.target_triple = Some(triple);
+                value = values.remove("target_vendor");
+                if value.is_some() {
+                    rust_info.target_vendor = Some(value.unwrap());
                 }
             }
         }
         _ => (),
     };
+}
+
+fn load_triple(rust_info: &mut RustInfo) {
+    let mut triple = String::new();
+
+    if let Some(arch) = &rust_info.target_arch {
+        triple.push_str(arch);
+    } else {
+        triple.push_str("unknown")
+    }
+
+    if let Some(vendor) = &rust_info.target_vendor {
+        triple.push_str("-");
+        triple.push_str(vendor);
+    }
+
+    if let Some(os) = &rust_info.target_os {
+        triple.push_str("-");
+        triple.push_str(os);
+    }
+
+    if let Some(env) = &rust_info.target_env {
+        triple.push_str("-");
+        triple.push_str(env);
+    }
+
+    if triple != "unknown" {
+        rust_info.target_triple = Some(triple);
+    }
 }
 
 /// Loads and returns the current rust compiler version and setup.<br>
@@ -138,6 +152,8 @@ pub(crate) fn get() -> RustInfo {
     load_version(&mut rust_info);
 
     load_setup(&mut rust_info);
+
+    load_triple(&mut rust_info);
 
     rust_info
 }
