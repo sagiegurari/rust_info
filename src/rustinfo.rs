@@ -116,30 +116,23 @@ fn load_setup(rust_info: &mut RustInfo) {
 }
 
 fn load_triple(rust_info: &mut RustInfo) {
-    let mut triple = String::new();
-
-    if let Some(arch) = &rust_info.target_arch {
+    if let (Some(arch), Some(os)) = (&rust_info.target_arch, &rust_info.target_os) {
+        let mut triple = String::new();
         triple.push_str(arch);
-    } else {
-        triple.push_str("unknown")
-    }
 
-    if let Some(vendor) = &rust_info.target_vendor {
-        triple.push_str("-");
-        triple.push_str(vendor);
-    }
+        if let Some(vendor) = &rust_info.target_vendor {
+            triple.push_str("-");
+            triple.push_str(vendor);
+        }
 
-    if let Some(os) = &rust_info.target_os {
         triple.push_str("-");
         triple.push_str(os);
-    }
 
-    if let Some(env) = &rust_info.target_env {
-        triple.push_str("-");
-        triple.push_str(env);
-    }
+        if let Some(env) = &rust_info.target_env {
+            triple.push_str("-");
+            triple.push_str(env);
+        }
 
-    if triple != "unknown" {
         rust_info.target_triple = Some(triple);
     }
 }
