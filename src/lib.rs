@@ -111,8 +111,6 @@
 //! # Examples
 //!
 //! ```
-//! extern crate rust_info;
-//!
 //! fn main() {
 //!     let rust_info = rust_info::get();
 //!
@@ -161,8 +159,6 @@ use crate::types::RustInfo;
 /// # Example
 ///
 /// ```
-/// extern crate rust_info;
-///
 /// fn main() {
 ///     let rust_info = rust_info::get();
 ///
