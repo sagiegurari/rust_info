@@ -23,8 +23,6 @@ This library main goal is to provide development/build tools such as [cargo-make
 Simply include the library and invoke the get function to pull all info as follows:
 
 ````rust
-extern crate rust_info;
-
 fn main() {
     let rust_info = rust_info::get();
 

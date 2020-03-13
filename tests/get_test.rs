@@ -1,4 +1,4 @@
-extern crate rust_info;
+use rust_info;
 
 #[test]
 fn get() {

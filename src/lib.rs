@@ -147,6 +147,9 @@
 #[path = "./lib_test.rs"]
 mod lib_test;
 
+#[cfg(doctest)]
+doc_comment::doctest!("../README.md");
+
 mod rustinfo;
 pub mod types;
 
