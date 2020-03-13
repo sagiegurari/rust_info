@@ -1,5 +1,5 @@
 #![feature(test)]
-extern crate rust_info;
+use rust_info;
 extern crate test;
 
 use test::Bencher;

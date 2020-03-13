@@ -1,4 +1,4 @@
-extern crate rust_info;
+use rust_info;
 
 fn main() {
     let rust_info = rust_info::get();
