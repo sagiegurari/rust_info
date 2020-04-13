@@ -18,7 +18,7 @@ pub enum RustChannel {
     Nightly,
 }
 
-#[derive(Debug, Clone, PartialEq)]
+#[derive(Debug, Clone, PartialEq, Default)]
 /// Holds the current rust installation and setup information
 pub struct RustInfo {
     /// version
@@ -42,15 +42,6 @@ pub struct RustInfo {
 impl RustInfo {
     /// Returns new instance
     pub fn new() -> RustInfo {
-        RustInfo {
-            version: None,
-            channel: None,
-            target_arch: None,
-            target_env: None,
-            target_os: None,
-            target_pointer_width: None,
-            target_vendor: None,
-            target_triple: None,
-        }
+        Default::default()
     }
 }
