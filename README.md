@@ -43,7 +43,7 @@ In order to use this library, just add it as a dependency:
 
 ```ini
 [dependencies]
-rust_info = "*"
+rust_info = "^0.3.0"
 ```
 
 ## API Documentation
