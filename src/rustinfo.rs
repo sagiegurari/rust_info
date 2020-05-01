@@ -7,6 +7,7 @@
 #[path = "./rustinfo_test.rs"]
 mod rustinfo_test;
 
+use crate::triple;
 use crate::types::{RustChannel, RustInfo};
 use std::collections::HashMap;
 use std::io::Error;
@@ -115,28 +116,6 @@ fn load_setup(rust_info: &mut RustInfo) {
     };
 }
 
-fn load_triple(rust_info: &mut RustInfo) {
-    if let (Some(arch), Some(os)) = (&rust_info.target_arch, &rust_info.target_os) {
-        let mut triple = String::new();
-        triple.push_str(arch);
-
-        if let Some(vendor) = &rust_info.target_vendor {
-            triple.push_str("-");
-            triple.push_str(vendor);
-        }
-
-        triple.push_str("-");
-        triple.push_str(os);
-
-        if let Some(env) = &rust_info.target_env {
-            triple.push_str("-");
-            triple.push_str(env);
-        }
-
-        rust_info.target_triple = Some(triple);
-    }
-}
-
 /// Loads and returns the current rust compiler version and setup.<br>
 /// In case partial data is not available, those values will be set to Option::None.
 pub(crate) fn get() -> RustInfo {
@@ -146,7 +125,7 @@ pub(crate) fn get() -> RustInfo {
 
     load_setup(&mut rust_info);
 
-    load_triple(&mut rust_info);
+    triple::load(&mut rust_info);
 
     rust_info
 }

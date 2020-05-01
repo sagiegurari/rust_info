@@ -156,6 +156,7 @@ mod lib_test;
 doc_comment::doctest!("../README.md");
 
 mod rustinfo;
+mod triple;
 pub mod types;
 
 use crate::types::RustInfo;

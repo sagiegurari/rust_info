@@ -11,7 +11,7 @@
 * [Installation](#installation)
 * [API Documentation](https://sagiegurari.github.io/rust_info/)
 * [Contributing](.github/CONTRIBUTING.md)
-* [Release History](#history)
+* [Release History](CHANGELOG.md)
 * [License](#license)
 
 <a name="overview"></a>
@@ -55,11 +55,7 @@ See [contributing guide](.github/CONTRIBUTING.md)
 <a name="history"></a>
 ## Release History
 
-| Date        | Version | Description |
-| ----------- | ------- | ----------- |
-| 2019-01-06  | v0.3.0  | Adding target_triple information. |
-| 2017-10-10  | v0.1.1  | Update exposed types. |
-| 2017-10-10  | v0.1.0  | Initial release. |
+See [Changelog](CHANGELOG.md)
 
 <a name="license"></a>
 ## License
