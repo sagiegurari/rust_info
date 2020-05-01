@@ -1,6 +1,6 @@
 ## CHANGELOG
 
-### v0.3.1
+### v0.3.1 (2020-05-01)
 
 * Fix target_triple for multiple platforms #3
 
