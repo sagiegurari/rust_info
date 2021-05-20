@@ -25,7 +25,6 @@ include = [
 
 [dev-dependencies]
 doc-comment = "^0.3"
-rusty-hook = "^0.11"
 
 [badges.codecov]
 branch = "master"
