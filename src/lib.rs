@@ -189,9 +189,35 @@ mod rustinfo;
 mod triple;
 pub mod types;
 
-use std::path::Path;
+use std::{borrow::Cow, path::Path};
 
 use crate::types::RustInfo;
+
+/// Options used for querying rust info
+#[derive(Debug, Clone)]
+pub struct Options<'path> {
+    /// Optionally override working directory used for querying `rustc`
+    pub path: Option<Cow<'path, Path>>,
+}
+
+impl<'path> Default for Options<'path> {
+    fn default() -> Self {
+        Self { path: None }
+    }
+}
+
+impl<'path> Options<'path> {
+    /// Helper for calling `default`
+    pub fn new() -> Self {
+        Self::default()
+    }
+
+    /// Sets the `path` option
+    pub fn path(mut self, path: Option<Cow<'path, Path>>) -> Self {
+        self.path = path;
+        self
+    }
+}
 
 /// Loads and returns the current rust compiler version and setup.<br>
 /// In case partial data is not available, those values will be set to Option::None.
@@ -213,7 +239,7 @@ use crate::types::RustInfo;
 /// }
 /// ```
 pub fn get() -> RustInfo {
-    rustinfo::get(None)
+    get_with_options(&Options::default())
 }
 
 /// Loads and returns the current rust compiler version and setup for a specified path.<br>
@@ -223,8 +249,8 @@ pub fn get() -> RustInfo {
 ///
 /// ```
 /// fn main() {
-///     let path = Path::new("./");
-///     let rust_info = rust_info::get_path(&path);
+///     let opts = rust_info::Options::new().path(Some(std::path::Path::new("./").into()));
+///     let rust_info = rust_info::get_with_options(&opts);
 ///
 ///     println!("Version: {}", rust_info.version.unwrap());
 ///     println!("Channel: {:#?}", rust_info.channel.unwrap());
@@ -236,6 +262,6 @@ pub fn get() -> RustInfo {
 ///     println!("Target Triple: {}", rust_info.target_triple.unwrap_or("unknown".to_string()));
 /// }
 /// ```
-pub fn get_path(path: &Path) -> RustInfo {
-    rustinfo::get(Some(path))
+pub fn get_with_options(options: &Options) -> RustInfo {
+    rustinfo::get(options)
 }

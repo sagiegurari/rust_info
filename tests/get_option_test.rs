@@ -1,15 +1,11 @@
-use super::*;
-use std::io::ErrorKind;
+use std::path::Path;
+
+use rust_info::Options;
 
 #[test]
-fn get_exit_code_error() {
-    let code = get_exit_code(Err(Error::new(ErrorKind::Other, "test")));
-    assert_eq!(code, -1);
-}
-
-#[test]
-fn load_with_values() {
-    let rust_info = crate::get();
+fn get() {
+    let opts = Options::new().path(Some(Path::new("./").into()));
+    let rust_info = rust_info::get_with_options(&opts);
 
     assert!(rust_info.version.is_some());
     assert!(rust_info.channel.is_some());
