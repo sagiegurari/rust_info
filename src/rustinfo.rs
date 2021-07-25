@@ -11,6 +11,7 @@ use crate::triple;
 use crate::types::{RustChannel, RustInfo};
 use std::collections::HashMap;
 use std::io::Error;
+use std::path::Path;
 use std::process::{Command, ExitStatus};
 
 /// Returns the exit code (-1 if no exit code found)
@@ -30,8 +31,16 @@ fn get_exit_code(exit_status: Result<ExitStatus, Error>) -> i32 {
     }
 }
 
-fn load_version(rust_info: &mut RustInfo) {
-    let result = Command::new("rustc").arg("--version").output();
+fn load_version(rust_info: &mut RustInfo, path: Option<&Path>) {
+    let mut command = Command::new("rustc");
+
+    command.arg("--version");
+
+    if let Some(directory) = path {
+        command.current_dir(directory);
+    }
+
+    let result = command.output();
 
     match result {
         Ok(output) => {
@@ -64,8 +73,16 @@ fn load_version(rust_info: &mut RustInfo) {
     };
 }
 
-fn load_setup(rust_info: &mut RustInfo) {
-    let result = Command::new("rustc").arg("--print").arg("cfg").output();
+fn load_setup(rust_info: &mut RustInfo, path: Option<&Path>) {
+    let mut command = Command::new("rustc");
+
+    command.arg("--print").arg("cfg");
+
+    if let Some(directory) = path {
+        command.current_dir(directory);
+    }
+
+    let result = command.output();
 
     match result {
         Ok(output) => {
@@ -118,12 +135,12 @@ fn load_setup(rust_info: &mut RustInfo) {
 
 /// Loads and returns the current rust compiler version and setup.<br>
 /// In case partial data is not available, those values will be set to Option::None.
-pub(crate) fn get() -> RustInfo {
+pub(crate) fn get(path: Option<&Path>) -> RustInfo {
     let mut rust_info = RustInfo::new();
 
-    load_version(&mut rust_info);
+    load_version(&mut rust_info, path);
 
-    load_setup(&mut rust_info);
+    load_setup(&mut rust_info, path);
 
     triple::load(&mut rust_info);
 

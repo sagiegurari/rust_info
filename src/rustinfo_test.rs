@@ -9,7 +9,7 @@ fn get_exit_code_error() {
 
 #[test]
 fn load_with_values() {
-    let rust_info = get();
+    let rust_info = get(None);
 
     assert!(rust_info.version.is_some());
     assert!(rust_info.channel.is_some());

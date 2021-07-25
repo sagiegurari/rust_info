@@ -189,6 +189,8 @@ mod rustinfo;
 mod triple;
 pub mod types;
 
+use std::path::Path;
+
 use crate::types::RustInfo;
 
 /// Loads and returns the current rust compiler version and setup.<br>
@@ -211,5 +213,29 @@ use crate::types::RustInfo;
 /// }
 /// ```
 pub fn get() -> RustInfo {
-    rustinfo::get()
+    rustinfo::get(None)
+}
+
+/// Loads and returns the current rust compiler version and setup for a specified path.<br>
+/// In case partial data is not available, those values will be set to Option::None.
+///
+/// # Example
+///
+/// ```
+/// fn main() {
+///     let path = Path::new("./");
+///     let rust_info = rust_info::get_path(&path);
+///
+///     println!("Version: {}", rust_info.version.unwrap());
+///     println!("Channel: {:#?}", rust_info.channel.unwrap());
+///     println!("Target Arch: {}", rust_info.target_arch.unwrap_or("unknown".to_string()));
+///     println!("Target Env: {}", rust_info.target_env.unwrap_or("unknown".to_string()));
+///     println!("Target OS: {}", rust_info.target_os.unwrap_or("unknown".to_string()));
+///     println!("Target Pointer Width: {}", rust_info.target_pointer_width.unwrap_or("unknown".to_string()));
+///     println!("Target Vendor: {}", rust_info.target_vendor.unwrap_or("unknown".to_string()));
+///     println!("Target Triple: {}", rust_info.target_triple.unwrap_or("unknown".to_string()));
+/// }
+/// ```
+pub fn get_path(path: &Path) -> RustInfo {
+    rustinfo::get(Some(path))
 }
