@@ -1,5 +1,3 @@
-use rust_info;
-
 #[test]
 fn get() {
     let rust_info = rust_info::get();
