@@ -1,5 +1,9 @@
 ## CHANGELOG
 
+### v0.3.2 (2021-07-30)
+
+* Enhancement: enable to fetch info from custom directory location #5 (thanks @EliseZeroTwo)
+
 ### v0.3.1 (2020-05-01)
 
 * Fix target_triple for multiple platforms #3

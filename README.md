@@ -65,7 +65,7 @@ In order to use this library, just add it as a dependency:
 
 ```ini
 [dependencies]
-rust_info = "^0.3.1"
+rust_info = "^0.3.2"
 ```
 
 ## API Documentation
