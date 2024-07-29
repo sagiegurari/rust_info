@@ -25,8 +25,3 @@ include = [
 
 [dev-dependencies]
 doc-comment = "^0.3"
-
-[badges.codecov]
-branch = "master"
-repository = "sagiegurari/rust_info"
-service = "github"
