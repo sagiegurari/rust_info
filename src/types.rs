@@ -8,6 +8,7 @@
 mod types_test;
 
 #[derive(Debug, Clone, PartialEq, Copy)]
+#[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 /// Rust channel type
 pub enum RustChannel {
     /// Rust stable channel
@@ -19,6 +20,7 @@ pub enum RustChannel {
 }
 
 #[derive(Debug, Clone, PartialEq, Default)]
+#[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 /// Holds the current rust installation and setup information
 pub struct RustInfo {
     /// version
