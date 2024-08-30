@@ -1,5 +1,9 @@
 ## CHANGELOG
 
+### v0.3.3 (2024-08-30)
+
+* Enhancement: Serde support (as optional feature) #7 (thanks @SamuelMarks)
+
 ### v0.3.2 (2021-07-30)
 
 * Enhancement: enable to fetch info from custom directory location #5 (thanks @EliseZeroTwo)
